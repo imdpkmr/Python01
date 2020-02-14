@@ -9,11 +9,12 @@ database=mysql.connector.connect(host=db_host, user=db_user, passwd=db_password,
 
 cursor=database.cursor()
 
-sql="DELETE FROM EMPLOYEE WHERE AGE < '%d'"%(22)
+sql="DELETE FROM EMPLOYEE WHERE AGE = '%d'"%(22)
 
 try:
     cursor.execute(sql)
     database.commit()
+    print("entry deleted")
 except:
     database.rollback()
 
